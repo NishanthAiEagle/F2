@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+  --accent: #d4af37;
+  --bg: #000;
+  --glass: rgba(255, 255, 255, 0.1);
+}
+
+body { margin: 0; background: var(--bg); font-family: 'Montserrat', sans-serif; overflow: hidden; color: #fff; }
+
+#video-container { position: fixed; inset: 0; z-index: 0; }
+#overlay { width: 100%; height: 100%; object-fit: cover; }
+
+#controls-hero {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 20px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+  z-index: 10;
+}
+
+.brand-row { display: flex; justify-content: space-between; align-items: center; }
+.brand-logo { height: 40px; margin-right: 12px; }
+.brand-name { font-family: 'Playfair Display'; font-size: 20px; color: var(--accent); }
+.brand-tag { font-size: 10px; opacity: 0.8; letter-spacing: 1px; }
+
+.action-row button {
+  background: var(--glass); border: none; padding: 8px; border-radius: 12px; margin-left: 10px; cursor: pointer;
+}
+.action-row img { width: 28px; height: 28px; }
+
+.controls-panel {
+  position: fixed;
+  bottom: 20px; left: 50%; transform: translateX(-50%);
+  width: 90%; text-align: center;
+}
+
+.pill-group, .sub-pills { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; }
+.pill, .subpill {
+  padding: 10px 20px; border-radius: 25px; border: none; background: var(--glass);
+  color: #fff; font-weight: 600; cursor: pointer; backdrop-filter: blur(5px);
+}
+.pill.accent { background: var(--accent); color: #000; }
+
+.carousel-cards {
+  display: flex; gap: 15px; overflow-x: auto; padding: 10px; justify-content: center;
+}
+.carousel-cards img { height: 60px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5)); cursor: pointer; }
+
+#flash-overlay {
+  position: fixed; inset: 0; background: #fff; opacity: 0; pointer-events: none; z-index: 100;
+}
+#flash-overlay.active { opacity: 1; transition: opacity 0.1s; }
+
+#info-modal, #snapshot-modal {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  background: rgba(15,15,15,0.95); padding: 30px; border-radius: 20px;
+  z-index: 200; border: 1px solid var(--accent); text-align: center;
+}
+
+#snapshot-preview { width: 100%; max-width: 300px; border-radius: 10px; margin-bottom: 20px; }

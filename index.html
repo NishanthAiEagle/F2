@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>www.jewels-ai.com | Gesture Enabled</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.21.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.0.5/dist/body-pix.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div id="video-container">
+      <video id="webcam" autoplay playsinline muted style="display:none;"></video>
+      <canvas id="overlay"></canvas>
+    </div>
+
+    <section id="controls-hero">
+      <div class="brand-row">
+        <div class="brand-left">
+          <img src="logo.png" alt="Brand" class="brand-logo" />
+          <div class="brand-name">Aurum Atelier</div>
+        </div>
+        <div class="action-row">
+          <button id="info-btn" onclick="toggleInfoModal()">
+             <img src="info icon.png" alt="Info">
+          </button>
+          <button id="snapshot-btn" onclick="takeSnapshot()">
+             <img src="camera-icon.png" alt="Camera">
+          </button>
+        </div>
+      </div>
+
+      <div class="controls-panel">
+        <div id="jewelry-mode" class="pill-group">
+          <button class="pill" onclick="toggleCategory('gold')">Gold</button>
+          <button class="pill" onclick="toggleCategory('diamond')">Diamond</button>
+          <button id="tryall-btn" class="pill accent" onclick="toggleTryAll()">Try All</button>
+        </div>
+        <div id="subcategory-buttons" class="sub-pills" style="display:none;">
+          <button onclick="selectJewelryType('gold_earrings')" class="subpill">Gold Earrings</button>
+          <button onclick="selectJewelryType('gold_necklaces')" class="subpill">Gold Necklaces</button>
+          <button onclick="selectJewelryType('diamond_earrings')" class="subpill">Diamond Earrings</button>
+          <button onclick="selectJewelryType('diamond_necklaces')" class="subpill">Diamond Necklaces</button>
+        </div>
+        <div id="jewelry-options" class="carousel-cards" style="display:none;"></div>
+      </div>
+    </section>
+
+    <div id="flash-overlay"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
