@@ -19,7 +19,10 @@
       <video id="webcam" autoplay playsinline muted style="display:none;"></video>
       <canvas id="overlay"></canvas>
     </div>
-
+<div id="gesture-indicator" style="position: fixed; top: 20px; left: 20px; z-index: 100; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.5); padding: 8px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(5px); transition: all 0.3s ease;">
+  <div id="indicator-dot" style="width: 10px; height: 10px; background: #555; border-radius: 50%; box-shadow: 0 0 5px rgba(0,0,0,0.5);"></div>
+  <span id="indicator-text" style="color: #eee; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Hand Not Detected</span>
+</div>
     <section id="controls-hero">
       <div class="brand-row">
         <div class="brand-left">
